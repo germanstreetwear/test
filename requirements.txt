@@ -1,4 +1,1 @@
-beautifulsoup4
-firebase-admin
-requests
-selenium
+google-cloud-firestore
