@@ -1,18 +1,13 @@
-from google.cloud import firestore
-from datetime import datetime
+import os
 
-def save_message():
-    # Firestore-Client initialisieren
-    db = firestore.Client()
+def load_and_print_secret():
+    # Secret aus der Umgebungsvariable laden
+    secret_value = os.getenv("MY_SECRET")
 
-    # Daten erstellen
-    doc_ref = db.collection("messages").document()
-    doc_ref.set({
-        "message": "Hallo",
-        "timestamp": datetime.utcnow()
-    })
-
-    print("Nachricht wurde erfolgreich gespeichert.")
+    if secret_value:
+        print(f"Secret erfolgreich geladen: {secret_value}")
+    else:
+        print("Fehler: Secret konnte nicht geladen werden.")
 
 if __name__ == "__main__":
-    save_message()
+    load_and_print_secret()
