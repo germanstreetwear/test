@@ -17,10 +17,12 @@ firebase_key_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 if firebase_key_path and os.path.exists(firebase_key_path):
     cred = credentials.Certificate(firebase_key_path)
     firebase_admin.initialize_app(cred)
+    db = firestore.client()
     logging.info("Erfolgreich mit Firestore verbunden.")
 else:
-    logging.error("Firebase-Schlüsseldatei nicht gefunden. Bitte überprüfen.")
+    logging.error("Firebase-Schlüsseldatei nicht gefunden oder ungültig.")
     db = None
+
 
 
 # Selenium WebDriver mit Headless-Option konfigurieren
