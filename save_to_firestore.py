@@ -5,7 +5,8 @@ def load_and_print_secret():
     secret_value = os.getenv("MY_SECRET")
 
     if secret_value:
-        print(f"Secret erfolgreich geladen: {secret_value}")
+        # Nur die ersten 4 Zeichen des Secrets anzeigen
+        print(f"Secret erfolgreich geladen: {secret_value[:4]}... (gekürzt)")
     else:
         print("Fehler: Secret konnte nicht geladen werden.")
 
